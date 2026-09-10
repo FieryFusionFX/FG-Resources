@@ -926,7 +926,7 @@ CREATE TABLE `player_mails` (
   `button` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -936,11 +936,6 @@ CREATE TABLE `player_mails` (
 SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `player_mails` WRITE;
 /*!40000 ALTER TABLE `player_mails` DISABLE KEYS */;
-INSERT INTO `player_mails` VALUES
-(1,'C46M9XF9','Pillbox Hospital','Hospital Costs','Dear Mr. Fabela, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$2000</strong><br /><br />We wish you a quick recovery!',0,944060,'2026-09-10 05:05:42',NULL),
-(2,'C46M9XF9','Pillbox Hospital','Hospital Costs','Dear Mr. Fabela, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$2000</strong><br /><br />We wish you a quick recovery!',0,128455,'2026-09-10 06:57:28',NULL),
-(3,'C46M9XF9','Turner\'s Auto Wrecking','Vehicle List','You can only scrap a limited number of vehicles..<br />You can keep everything you scrap for yourself as long as you don\'t bother me.<br /><br /><strong>Vehicle List:</strong><br />Imponte Ruiner<br />Vapid Chino<br />Benefactor Feltzer<br />Enus Huntley S<br />Nagasaki Carbon RS<br />Benefactor Serrano<br />Dinka Jester<br />Karin Sultan<br />Ocelot Jackal<br />Obey 9F Cabrio<br />Grotti Grotti Turismo R<br />Declasse Asea<br />Lampadati Pigalle<br />Fathom FQ2<br />Pegassi Bati 801<br />Vapid Stanier<br />Gallivanter Baller<br />Dinka Blista Compact<br />Bravado Rat-Truck<br />Bollokan Prairie<br />Pfister Comet<br />Vapid Slam Van<br />Übermacht Oracle XS<br />Albany Alpha<br />Bravado Bison<br />Obey 9F<br />Vapid Blade<br />Declasse Sabre Turbo<br />Benefactor Panto<br />Übermacht Zion Cabrio<br />Schyster Fusilade<br />Enus Cognoscenti<br />Übermacht Zion<br />Albany Washington<br />Dinka Akuma<br />Ocelot F620<br />Albany Cavalcade<br />Vapid Bullet<br />Pegassi Zentorno<br />Albany Virgo<br />',0,829656,'2026-09-10 07:30:51',NULL),
-(4,'C46M9XF9','Pillbox Hospital','Hospital Costs','Dear Mr. Fabela, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$2000</strong><br /><br />We wish you a quick recovery!',0,355835,'2026-09-10 09:30:30',NULL);
 /*!40000 ALTER TABLE `player_mails` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -1066,7 +1061,7 @@ CREATE TABLE `player_vehicles` (
   UNIQUE KEY `plate` (`plate`),
   KEY `citizenid` (`citizenid`),
   CONSTRAINT `1` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1076,11 +1071,6 @@ CREATE TABLE `player_vehicles` (
 SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `player_vehicles` WRITE;
 /*!40000 ALTER TABLE `player_vehicles` DISABLE KEYS */;
-INSERT INTO `player_vehicles` VALUES
-(1,'license2:8fe336d675af6b473ba73d70a353f21da020cc5d','C46M9XF9','bati','-114291515','{\"model\":-114291515,\"fuelLevel\":100,\"engineHealth\":1000,\"bodyHealth\":1000,\"plate\":\"Y3MM4VD2\"}','Y3MM4VD2',NULL,NULL,100,1000,1000,1,517,43870,'{\"brakes\":100,\"tire\":100,\"engine\":746.6829223632813,\"fuel\":100,\"axle\":100,\"clutch\":100,\"radiator\":100,\"body\":805.1088256835938}',NULL,NULL,NULL),
-(2,'license2:8fe336d675af6b473ba73d70a353f21da020cc5d','C46M9XF9','greenwood','40817712','{\"model\":40817712,\"fuelLevel\":100,\"engineHealth\":1000,\"bodyHealth\":1000,\"plate\":\"35V92ASC\"}','35V92ASC',NULL,NULL,100,1000,1000,1,1578,36129,'{\"brakes\":100,\"tire\":100,\"fuel\":100,\"clutch\":100,\"axle\":100,\"engine\":0.0,\"body\":851.4561767578125,\"radiator\":100}',NULL,NULL,NULL),
-(3,'license2:8fe336d675af6b473ba73d70a353f21da020cc5d','C46M9XF9','stinger','1545842587','{\"modAerials\":-1,\"paintType1\":7,\"extras\":[0,1],\"modNitrous\":-1,\"modRoof\":-1,\"modLightbar\":-1,\"modEngine\":3,\"dirtLevel\":7,\"modSpeakers\":-1,\"doors\":[],\"modHood\":-1,\"wheelWidth\":0.42527309060096,\"modTurbo\":true,\"livery\":-1,\"dashboardColor\":0,\"modVanityPlate\":-1,\"modHorns\":-1,\"modAirFilter\":-1,\"modOrnaments\":-1,\"modTrimB\":-1,\"modDoorSpeaker\":-1,\"modCustomTiresF\":false,\"modSubwoofer\":-1,\"color2\":0,\"modDoorR\":-1,\"lockState\":1,\"modWindows\":-1,\"modFender\":-1,\"engineHealth\":1000,\"wheels\":5,\"paintType2\":7,\"modHydraulics\":false,\"modBrakes\":2,\"modSideSkirt\":-1,\"modTank\":-1,\"modArmor\":-1,\"color1\":222,\"modDial\":-1,\"modExhaust\":-1,\"modTransmission\":2,\"pearlescentColor\":4,\"modSeats\":-1,\"tyres\":[],\"modCustomTiresR\":false,\"bulletProofTyres\":true,\"neonColor\":[2,21,255],\"modRearBumper\":-1,\"modEngineBlock\":-1,\"wheelColor\":156,\"modSpoilers\":-1,\"modRoofLivery\":-1,\"neonEnabled\":[false,false,false,false],\"tankHealth\":1000,\"xenonColor\":255,\"wheelSize\":0.66399997472763,\"windowTint\":-1,\"modDashboard\":-1,\"modXenon\":false,\"tyreSmokeColor\":[254,254,254],\"modTrimA\":-1,\"modFrontBumper\":-1,\"model\":1545842587,\"modLivery\":-1,\"interiorColor\":67,\"modFrame\":-1,\"modArchCover\":-1,\"driftTyres\":false,\"oilLevel\":5,\"modSteeringWheel\":-1,\"fuelLevel\":65,\"modTrunk\":-1,\"modRightFender\":-1,\"modSmokeEnabled\":true,\"modShifterLeavers\":-1,\"modStruts\":-1,\"modPlateHolder\":-1,\"bodyHealth\":1000,\"plateIndex\":1,\"modGrille\":-1,\"modSuspension\":3,\"windows\":[0,1,2,3,4,5,7],\"modHydrolic\":-1,\"modAPlate\":-1,\"modBackWheels\":-1,\"modFrontWheels\":4,\"plate\":\"2255G41D\"}','2255G41D',NULL,NULL,100,1000,1000,1,1494,33294,'{\"clutch\":100,\"body\":904.8910522460938,\"radiator\":100,\"brakes\":100,\"axle\":100,\"tire\":100,\"fuel\":100,\"engine\":62.38559341430664}',NULL,NULL,NULL),
-(4,'license2:8fe336d675af6b473ba73d70a353f21da020cc5d','C46M9XF9','e46','1840495621','{\"modRearBumper\":0,\"livery\":0,\"modTrimA\":-1,\"wheelWidth\":1.0,\"modTurbo\":true,\"modSideSkirt\":-1,\"modAerials\":-1,\"modFender\":-1,\"modFrontBumper\":1,\"modDashboard\":-1,\"modSpeakers\":-1,\"engineHealth\":0,\"dashboardColor\":0,\"modDoorR\":-1,\"windowTint\":1,\"model\":1840495621,\"neonEnabled\":[false,false,false,false],\"modDoorSpeaker\":-1,\"modRoof\":-1,\"modExhaust\":0,\"windows\":[2,4,5,6,7],\"xenonColor\":11,\"modPlateHolder\":-1,\"modAPlate\":-1,\"extras\":[],\"lockState\":1,\"modHorns\":9,\"dirtLevel\":5,\"plate\":\"982HTLU0\",\"modArmor\":-1,\"wheels\":0,\"modNitrous\":-1,\"fuelLevel\":96,\"tyreSmokeColor\":[254,254,254],\"modSpoilers\":2,\"modHydrolic\":-1,\"modWindows\":-1,\"modTrimB\":-1,\"bodyHealth\":830,\"modSeats\":-1,\"modRoofLivery\":-1,\"modSuspension\":3,\"modCustomTiresF\":false,\"bulletProofTyres\":true,\"modSteeringWheel\":-1,\"modTank\":-1,\"modEngine\":3,\"modFrame\":-1,\"modGrille\":-1,\"plateIndex\":5,\"modSmokeEnabled\":true,\"modShifterLeavers\":-1,\"color1\":163,\"modRightFender\":-1,\"paintType1\":7,\"modXenon\":true,\"modLightbar\":-1,\"modTransmission\":3,\"modHood\":2,\"modBackWheels\":-1,\"pearlescentColor\":42,\"wheelColor\":156,\"modBrakes\":3,\"interiorColor\":0,\"modAirFilter\":-1,\"modEngineBlock\":-1,\"modStruts\":-1,\"modLivery\":-1,\"color2\":2,\"modTrunk\":-1,\"modVanityPlate\":-1,\"modSubwoofer\":-1,\"oilLevel\":0,\"modArchCover\":-1,\"tankHealth\":979,\"wheelSize\":1.0,\"tyres\":[3],\"driftTyres\":false,\"modDial\":-1,\"modFrontWheels\":-1,\"modOrnaments\":-1,\"doors\":[4],\"paintType2\":7,\"modCustomTiresR\":false,\"modHydraulics\":false,\"neonColor\":[255,0,255]}','982HTLU0',NULL,NULL,100,1000,1000,1,4320,8146,'{\"axle\":100,\"tire\":100,\"brakes\":100,\"body\":958.8331909179688,\"engine\":709.8016357421875,\"radiator\":100,\"fuel\":100,\"clutch\":100}',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `player_vehicles` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -1114,7 +1104,7 @@ CREATE TABLE `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1124,8 +1114,6 @@ CREATE TABLE `players` (
 SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `players` WRITE;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
-INSERT INTO `players` VALUES
-(1,1,'C46M9XF9',1,'license2:8fe336d675af6b473ba73d70a353f21da020cc5d','FieryFusionFX','{\"cash\":9523656,\"crypto\":0,\"bank\":-340}','{\"nationality\":\"American\",\"phone\":\"8158341444\",\"firstname\":\"Aj\",\"birthdate\":\"2005-09-21\",\"gender\":0,\"cid\":1,\"account\":\"US01QBX2040991587\",\"backstory\":\"placeholder backstory\",\"lastname\":\"Fabela\"}','{\"name\":\"thief\",\"grade\":{\"name\":\"Thief\",\"level\":0},\"payment\":25,\"label\":\"Thief\",\"bankAuth\":false,\"isboss\":false,\"onduty\":true}','{\"name\":\"none\",\"grade\":{\"name\":\"Unaffiliated\",\"level\":0},\"label\":\"No Gang\",\"bankAuth\":false,\"isboss\":false}','{\"x\":-382.6549377441406,\"y\":-192.6988983154297,\"z\":36.778076171875,\"w\":291.968505859375}','{\"optin\":true,\"thirst\":100,\"stress\":0,\"dealerrep\":0,\"health\":150,\"jobrep\":{\"trucker\":0,\"tow\":0,\"taxi\":0,\"hotdog\":0},\"phonedata\":{\"InstalledApps\":[],\"SerialNumber\":67417502},\"armor\":0,\"walletid\":\"QB-47470460\",\"callsign\":\"NO CALLSIGN\",\"injail\":0,\"craftingrep\":0,\"jailitems\":[],\"ishandcuffed\":false,\"bloodtype\":\"A+\",\"phone\":[],\"licences\":{\"weapon\":true,\"driver\":true,\"id\":true},\"attachmentcraftingrep\":0,\"inside\":{\"apartment\":[]},\"criminalrecord\":{\"hasRecord\":false},\"tracker\":false,\"hunger\":100,\"isdead\":false,\"fingerprint\":\"6C44FL89D17005A\",\"inlaststand\":true,\"status\":[]}','[{\"metadata\":{\"components\":[],\"registered\":\"Aj Fabela\",\"serial\":\"197441AFH396619\",\"ammo\":4,\"durability\":98.00000000000009},\"name\":\"WEAPON_REVOLVER_MK2\",\"count\":1,\"slot\":1},{\"name\":\"ammo-44\",\"count\":76,\"slot\":2},{\"metadata\":{\"components\":[],\"registered\":\"Aj Fabela\",\"serial\":\"207870QLW250274\",\"ammo\":0,\"durability\":99.5},\"name\":\"WEAPON_MUSKET\",\"count\":1,\"slot\":3},{\"metadata\":{\"components\":[],\"registered\":\"Aj Fabela\",\"serial\":\"143782LTL179235\",\"ammo\":1,\"durability\":97.0},\"name\":\"WEAPON_RAILGUNXM3\",\"count\":1,\"slot\":4},{\"name\":\"phone\",\"count\":1,\"slot\":5},{\"name\":\"money\",\"count\":9523656,\"slot\":21},{\"metadata\":{\"citizenid\":\"C46M9XF9\",\"sex\":\"M\",\"badge\":\"none\",\"lastname\":\"Fabela\",\"firstname\":\"Aj\",\"nationality\":\"American\",\"birthdate\":\"2005-09-21\",\"cardtype\":\"driver_license\"},\"name\":\"driver_license\",\"count\":1,\"slot\":23},{\"metadata\":{\"components\":[],\"registered\":\"Aj Fabela\",\"serial\":\"182921UYB111132\",\"ammo\":0,\"durability\":100},\"name\":\"WEAPON_SPECIALCARBINE\",\"count\":1,\"slot\":16},{\"metadata\":{\"components\":[],\"registered\":\"Aj Fabela\",\"serial\":\"687829PWM137428\",\"ammo\":0,\"durability\":96.99999999999992},\"name\":\"WEAPON_SPECIALCARBINE_MK2\",\"count\":1,\"slot\":17},{\"metadata\":{\"citizenid\":\"C46M9XF9\",\"sex\":\"M\",\"badge\":\"none\",\"lastname\":\"Fabela\",\"firstname\":\"Aj\",\"nationality\":\"American\",\"birthdate\":\"2005-09-21\",\"cardtype\":\"weaponlicense\"},\"name\":\"weaponlicense\",\"count\":1,\"slot\":25},{\"name\":\"ammo-railgun\",\"count\":293,\"slot\":19},{\"name\":\"ammo-musket\",\"count\":1,\"slot\":20},{\"metadata\":{\"citizenid\":\"C46M9XF9\",\"sex\":\"M\",\"badge\":\"none\",\"lastname\":\"Fabela\",\"firstname\":\"Aj\",\"nationality\":\"American\",\"birthdate\":\"2005-09-21\",\"cardtype\":\"id_card\"},\"name\":\"id_card\",\"count\":1,\"slot\":24}]','8158341444','2026-09-10 09:37:05','2026-09-10 09:37:05');
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -1319,7 +1307,7 @@ CREATE TABLE `weed_plants` (
   `stageProgress` tinyint(4) NOT NULL DEFAULT 0,
   `coords` tinytext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1329,10 +1317,6 @@ CREATE TABLE `weed_plants` (
 SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `weed_plants` WRITE;
 /*!40000 ALTER TABLE `weed_plants` DISABLE KEYS */;
-INSERT INTO `weed_plants` VALUES
-(1,NULL,7,'og_kush','female',39,90,0,0,'{\"x\":806.571533203125,\"y\":5702.66259765625,\"z\":698.0430297851563}'),
-(3,NULL,7,'og_kush','female',41,92,0,0,'{\"x\":2760.4482421875,\"y\":3471.181396484375,\"z\":55.65656661987305}'),
-(4,NULL,7,'white_widow','male',41,92,0,0,'{\"x\":2794.079345703125,\"y\":3473.15966796875,\"z\":55.35631561279297}');
 /*!40000 ALTER TABLE `weed_plants` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -1405,4 +1389,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-09-10 11:13:11
+-- Dump completed on 2026-09-10 11:53:10

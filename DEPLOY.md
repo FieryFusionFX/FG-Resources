@@ -1,10 +1,13 @@
-# Fierygames FXServer - deployment recipe
+# Fierygames FXServer - base template / deployment recipe
 
-How to move this exact server (Qbox/qbx, custom resources, the 174-vehicle
-add-on pack, everything built this session) from this dev box onto a
-different computer. This isn't a txAdmin `recipe.yaml` (a lot of what's here
-is hand-patched files, not something a fresh git-clone-and-script deploy
-could reproduce) - it's a copy-this / edit-that checklist instead.
+This is a clean **base template**, not a specific live deployment: Qbox/qbx,
+all the custom resources and the 174-vehicle add-on pack built this session,
+with all player data wiped (see step 2). Spin it up fresh on as many boxes as
+you want - each one starts with zero characters, zero owned vehicles, no mail,
+no planted weed - just the world/economy config (society bank accounts, door
+locks, shops, jobs) in place. This isn't a txAdmin `recipe.yaml` (a lot of
+what's here is hand-patched files, not something a fresh git-clone-and-script
+deploy could reproduce) - it's a copy-this / edit-that checklist instead.
 
 `Qbox_A1B5B5.base\` is now a git repo (pushed to GitHub as **FG-Resources**,
 private). That's the recommended transfer method since it's just a clone on
@@ -38,10 +41,17 @@ zipping first won't meaningfully shrink anything - copy the folder as-is.
 
 ## 2. Database
 
-A fresh dump of the current database (schema + all data - characters,
-vehicles, money, everything as it stands right now) is at:
+A dump of the full schema is at:
 
     F:\Fierygames\database\backups\Qbox_A1B5B5_deploy.sql
+
+Player data has been stripped so every spin-up from this template starts
+blank: `players`, `player_vehicles`, `player_mails`, and `weed_plants` are all
+empty (no characters, no owned vehicles, no mail, no planted weed). Static
+server/world config is left intact so the server isn't missing anything on
+first boot - society bank accounts (`bank_accounts_new`: police, ambulance,
+mechanic, etc.), the heist door-lock definitions (`ox_doorlock`), and every
+other table were already empty or config-only and untouched.
 
 On the main server, create a database and import it:
 
