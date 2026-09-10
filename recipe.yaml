@@ -13,64 +13,88 @@ variables:
   discordLink: ""
 
 tasks:
-  # Pull everything from the FG-Resources repo into a scratch folder
+  # Small root files - plain HTTP fetch, no GitHub API involved
+  - action: download_file
+    url: https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/server.cfg
+    path: ./server.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/ox.cfg
+    path: ./ox.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/voice.cfg
+    path: ./voice.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/permissions.cfg
+    path: ./permissions.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/misc.cfg
+    path: ./misc.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/myLogo.png
+    path: ./myLogo.png
+
+  # Resources - one bracket folder per download_github call (subpath), so no
+  # single request has to move the whole 5.6GB repo at once
   - action: download_github
     src: https://github.com/FieryFusionFX/FG-Resources
     ref: main
-    dest: ./tmp/fg
-
-  # Resources (one bracket folder at a time, matching how the repo is laid out)
-  - action: move_path
-    src: ./tmp/fg/resources/[assets]
+    subpath: resources/[assets]
     dest: ./resources/[assets]
-  - action: move_path
-    src: ./tmp/fg/resources/[cfx-default]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[cfx-default]
     dest: ./resources/[cfx-default]
-  - action: move_path
-    src: ./tmp/fg/resources/[custom]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[custom]
     dest: ./resources/[custom]
-  - action: move_path
-    src: ./tmp/fg/resources/[npwd-apps]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[npwd-apps]
     dest: ./resources/[npwd-apps]
-  - action: move_path
-    src: ./tmp/fg/resources/[npwd]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[npwd]
     dest: ./resources/[npwd]
-  - action: move_path
-    src: ./tmp/fg/resources/[ox]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[ox]
     dest: ./resources/[ox]
-  - action: move_path
-    src: ./tmp/fg/resources/[qbx]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[qbx]
     dest: ./resources/[qbx]
-  - action: move_path
-    src: ./tmp/fg/resources/[standalone]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[standalone]
     dest: ./resources/[standalone]
-  - action: move_path
-    src: ./tmp/fg/resources/[voice]
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[voice]
     dest: ./resources/[voice]
-  - action: move_path
-    src: ./tmp/fg/resources/[Autos]
-    dest: ./resources/[Autos]
 
-  # Server config - server.cfg already execs secrets.cfg/ox.cfg/voice.cfg/
-  # permissions.cfg/misc.cfg, none of it needs per-deploy templating
-  - action: move_path
-    src: ./tmp/fg/server.cfg
-    dest: ./server.cfg
-  - action: move_path
-    src: ./tmp/fg/ox.cfg
-    dest: ./ox.cfg
-  - action: move_path
-    src: ./tmp/fg/voice.cfg
-    dest: ./voice.cfg
-  - action: move_path
-    src: ./tmp/fg/permissions.cfg
-    dest: ./permissions.cfg
-  - action: move_path
-    src: ./tmp/fg/misc.cfg
-    dest: ./misc.cfg
-  - action: move_path
-    src: ./tmp/fg/myLogo.png
-    dest: ./myLogo.png
+  # The big one - ~5.5GB, needs far more than the 150s default timeout
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: resources/[Autos]
+    dest: ./resources/[Autos]
+    timeoutSeconds: 7200
+
+  - action: download_github
+    src: https://github.com/FieryFusionFX/FG-Resources
+    ref: main
+    subpath: database-backup
+    dest: ./tmp/database-backup
+    timeoutSeconds: 300
 
   # secrets.cfg is the only thing that's per-deployment - build it from the
   # wizard's answers (write_file doesn't template on its own, hence the
@@ -107,7 +131,7 @@ tasks:
   # society accounts/door configs)
   - action: connect_database
   - action: query_database
-    file: ./tmp/fg/database-backup/Qbox_A1B5B5_deploy.sql
+    file: ./tmp/database-backup/Qbox_A1B5B5_deploy.sql
 
   - action: remove_path
     path: ./tmp
