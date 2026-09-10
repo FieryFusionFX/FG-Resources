@@ -1,0 +1,12 @@
+# Runtime cache - regenerated automatically on first boot, never portable
+cache/
+
+# Local console history
+.replxx_history
+
+# Old local backup, not needed in the repo
+server.cfg.bkp
+
+# Per-deployment secrets (license key, DB connection, admin identity, API keys).
+# NEVER commit this file - see secrets.cfg.example for the template instead.
+secrets.cfg

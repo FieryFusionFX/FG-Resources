@@ -1,0 +1,15 @@
+{
+    "text": {
+        "interact_prompt": "[E] Cook Drugs",
+        "lab_header": "Cook a Batch",
+        "recipe_label": "Recipe"
+    },
+    "error": {
+        "missing_ingredients": "You Don't Have The Ingredients For That",
+        "already_cooking": "You're Already Cooking Something",
+        "not_thief": "You Don't Know How To Do This"
+    },
+    "success": {
+        "cook_complete": "You cooked %sx %s"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "text": {
+        "sell_header": "Sell to Dealer",
+        "item_label": "Item",
+        "quantity_label": "Quantity",
+        "target_label": "Sell Drugs",
+        "blip_name": "Drug Dealer"
+    },
+    "error": {
+        "nothing_to_sell": "You Don't Have Anything To Sell",
+        "dont_have_enough": "You Don't Have That Much To Sell",
+        "invalid_sale": "That Sale Didn't Go Through"
+    },
+    "success": {
+        "sold": "You sold %sx %s for $%s"
+    },
+    "info": {
+        "possible_drug_dealing": "Possible drug dealing"
+    }
+}

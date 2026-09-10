@@ -1,0 +1,18 @@
+{
+    "text": {
+        "interact_prompt": "Press ~g~E~w~ to launder money",
+        "amount_label": "Amount to Launder",
+        "amount_description": "How much Dirty Money to launder",
+        "laundering": "Laundering Money..."
+    },
+    "error": {
+        "no_dirty_money": "You Don't Have Any Dirty Money",
+        "invalid_amount": "Invalid Amount",
+        "not_enough_dirty_money": "You Don't Have That Much Dirty Money",
+        "already_laundering": "You're Already Laundering Money",
+        "not_thief": "You Don't Know How To Do This"
+    },
+    "success": {
+        "laundered": "Laundered $%s of dirty money into $%s clean cash (%s%% cut taken)"
+    }
+}

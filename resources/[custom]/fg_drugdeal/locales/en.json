@@ -1,0 +1,26 @@
+{
+    "text": {
+        "deal_header": "Offer a Deal",
+        "item_label": "Item",
+        "quantity_label": "Quantity",
+        "price_label": "Price ($)",
+        "offer_header": "Drug Deal Offer",
+        "offer_content": "%s wants to sell you %sx %s for $%s. Accept?"
+    },
+    "error": {
+        "no_one_nearby": "No One Close Enough To Deal With",
+        "nothing_to_sell": "You Don't Have Anything To Sell",
+        "too_far_away": "You're Too Far Away From Each Other",
+        "dont_have_enough": "You Don't Have That Much To Sell",
+        "seller_no_longer_has_item": "The Seller No Longer Has Enough Of That Item",
+        "buyer_cant_afford": "The Buyer Can't Afford That",
+        "you_cant_afford": "You Can't Afford That",
+        "offer_declined": "The Offer Was Declined",
+        "offer_expired": "The Offer Expired",
+        "not_thief": "You Don't Know How To Do This"
+    },
+    "success": {
+        "deal_completed_seller": "You sold %sx %s for $%s",
+        "deal_completed_buyer": "You bought %sx %s for $%s"
+    }
+}

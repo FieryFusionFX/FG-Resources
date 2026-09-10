@@ -1,0 +1,12 @@
+{
+    "notification": {
+        "marked": "Vehicle marked on the map",
+        "cannot_locate": "This vehicle cannot be located",
+        "called_in": "Your vehicle has been brought to you",
+        "no_space": "There's no room to bring your vehicle here",
+        "impounded": "That vehicle is impounded - go pick it up in person"
+    },
+    "states": {
+        "garage_unknown": "Unknown garage"
+    }
+}
