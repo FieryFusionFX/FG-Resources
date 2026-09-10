@@ -891,7 +891,7 @@ CREATE TABLE `player_jobs_activity` (
   KEY `id` (`id` DESC) USING BTREE,
   KEY `last_checkout` (`last_checkout`) USING BTREE,
   KEY `citizenid_job` (`citizenid`,`job`) USING BTREE,
-  CONSTRAINT `1` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE
+  CONSTRAINT `fk_player_jobs_activity_citizenid` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1059,8 +1059,8 @@ CREATE TABLE `player_vehicles` (
   `trunk` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `plate` (`plate`),
-  KEY `citizenid` (`citizenid`),
-  CONSTRAINT `1` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk_player_vehicles_citizenid` (`citizenid`),
+  CONSTRAINT `fk_player_vehicles_citizenid` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1172,9 +1172,9 @@ CREATE TABLE `properties` (
   `stash_options` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT json_object() CHECK (json_valid(`stash_options`)),
   `garage` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`garage`)),
   PRIMARY KEY (`id`),
-  KEY `owner` (`owner`),
-  CONSTRAINT `1` FOREIGN KEY (`owner`) REFERENCES `players` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `fk_properties_owner` (`owner`),
+  CONSTRAINT `fk_properties_owner` FOREIGN KEY (`owner`) REFERENCES `players` (`citizenid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1184,8 +1184,6 @@ CREATE TABLE `properties` (
 SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
-INSERT INTO `properties` VALUES
-(1,'Tinsel Towers Apt 1','{\"x\":-614.5800170898438,\"y\":46.52000045776367,\"z\":43.59000015258789}',0,'C46M9XF9','TinselTowersApt42','{}',NULL,'[{\"type\":\"logout\",\"coords\":{\"x\":-593.7100219726563,\"y\":50.18000030517578,\"z\":97.0}},{\"type\":\"clothing\",\"coords\":{\"x\":-594.6300048828125,\"y\":56.1500015258789,\"z\":97.0}},{\"type\":\"exit\",\"coords\":{\"x\":-604.0599975585938,\"y\":58.9900016784668,\"z\":98.19999694824219,\"w\":91.44999694824219}}]','[{\"maxWeight\":150000,\"slots\":50,\"coords\":{\"x\":-622.3599853515625,\"y\":55.09000015258789,\"z\":97.5999984741211}}]',NULL);
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -1205,8 +1203,8 @@ CREATE TABLE `properties_decorations` (
   `coords` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`coords`)),
   `rotation` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`rotation`)),
   PRIMARY KEY (`id`),
-  KEY `property_id` (`property_id`),
-  CONSTRAINT `1` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE
+  KEY `fk_properties_decorations_property_id` (`property_id`),
+  CONSTRAINT `fk_properties_decorations_property_id` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1389,4 +1387,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-09-10 11:53:10
+-- Dump completed on 2026-09-10 13:00:23
