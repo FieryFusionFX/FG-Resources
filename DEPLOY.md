@@ -9,10 +9,20 @@ locks, shops, jobs) in place. This isn't a txAdmin `recipe.yaml` (a lot of
 what's here is hand-patched files, not something a fresh git-clone-and-script
 deploy could reproduce) - it's a copy-this / edit-that checklist instead.
 
-`Qbox_A1B5B5.base\` is now a git repo (pushed to GitHub as **FG-Resources**,
-private). That's the recommended transfer method since it's just a clone on
-the other end - no drives, no FTP client. A direct-copy fallback is included
-too in case you ever need it.
+`Qbox_A1B5B5.base\` is now a git repo, pushed to GitHub as **FG-Resources**
+(public - needed so txAdmin's recipe downloader can reach it without auth).
+There are three ways to stand this up on a new box, easiest first:
+
+1. **txAdmin recipe** - `recipe.yaml` in this repo automates the whole thing:
+   downloads the resources/config from FG-Resources, writes `secrets.cfg`
+   from the answers you give in txAdmin's deploy wizard (license key, DB
+   connection, server name, Discord link, admin identifier), and imports the
+   blank database. In txAdmin's "Deploy a Recipe" screen, choose "Custom
+   Recipe (import from URL)" and point it at:
+   `https://raw.githubusercontent.com/FieryFusionFX/FG-Resources/main/recipe.yaml`
+2. **Clone the repo yourself** and follow steps 2-5 below manually.
+3. **Direct-copy fallback** (no GitHub at all) - see the note at the end of
+   step 1 below.
 
 ## 1. What's in the repo (and what deliberately isn't)
 
