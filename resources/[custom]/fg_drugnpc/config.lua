@@ -20,8 +20,8 @@ return {
         ['weed_amnesia'] = { min = 620, max = 780 }, -- Tier 5, seed $600
         ['weed_ak47'] = { min = 650, max = 800 }, -- Tier 5, seed $600
         ['meth'] = { min = 80, max = 100 }, -- fg_druglab: ingredient $150 -> 5 bags/cook
-        ['cokebaggy'] = { min = 90, max = 110 }, -- fg_druglab: ingredient $200 -> 5 bags/cook
-        ['crack_baggy'] = { min = 110, max = 140 }, -- fg_druglab: cooked from cokebaggy + baking soda
+        ['cokebaggy'] = { min = 190, max = 210 }, -- fg_druglab: ingredient $200 -> 5 bags/cook
+        ['crack_baggy'] = { min = 210, max = 240 }, -- fg_druglab: cooked from cokebaggy + baking soda
     },
 
     ped = {
