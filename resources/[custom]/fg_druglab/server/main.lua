@@ -9,10 +9,11 @@ lib.callback.register('fg_druglab:server:takeIngredients', function(source, reci
     local recipe = config.recipes[recipeKey]
     if not recipe or pendingCooks[source] then return false end
 
-    -- never trust the client's quantity - recompute the cap server-side
-    local maxQuantity = math.floor(config.maxCookTime / recipe.cookTime)
+    -- never trust the client's quantity - no cap on how many batches, but it
+    -- has to be a real positive count (the ingredient check below is the
+    -- practical ceiling: you can't queue more than you're carrying)
     quantity = math.floor(tonumber(quantity) or 0)
-    if quantity < 1 or quantity > maxQuantity then return false end
+    if quantity < 1 then return false end
 
     for i = 1, #recipe.ingredients do
         local ingredient = recipe.ingredients[i]

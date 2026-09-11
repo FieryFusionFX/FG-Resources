@@ -53,7 +53,7 @@ local function startCook(recipeKey, quantity)
     isCooking = true
 
     local success = lib.progressBar({
-        duration = recipe.cookTime * quantity,
+        duration = math.min(recipe.cookTime * quantity, config.maxCookTime),
         label = ('%s x%s'):format(recipe.label, quantity),
         useWhileDead = false,
         canCancel = false,
@@ -84,10 +84,9 @@ local function openLabMenu(labIndex)
 
     local recipeKey = input[1]
     local recipe = config.recipes[recipeKey]
-    local maxQuantity = math.floor(config.maxCookTime / recipe.cookTime)
 
     local qtyInput = lib.inputDialog(recipe.label, {
-        { type = 'number', label = locale('text.quantity_label', maxQuantity), min = 1, max = maxQuantity, default = 1, required = true },
+        { type = 'number', label = locale('text.quantity_label'), min = 1, default = 1, required = true },
     })
 
     if not qtyInput then return end
