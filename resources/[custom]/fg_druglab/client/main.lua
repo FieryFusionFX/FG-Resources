@@ -58,6 +58,10 @@ local function startCook(recipeKey, quantity)
         useWhileDead = false,
         canCancel = false,
         disable = { move = true, car = true, combat = true },
+        anim = {
+            dict = 'timetable@gardener@filling_can',
+            clip = 'gar_ig_5_filling_can',
+        },
     })
 
     isCooking = false
