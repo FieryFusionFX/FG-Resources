@@ -39,7 +39,11 @@ RegisterNetEvent('fg_druglab:server:finishCook', function(recipeKey)
     local recipe = config.recipes[recipeKey]
     if not recipe then return end
 
-    local amount = recipe.output.amount * pending.quantity
+    local amount = 0
+    for _ = 1, pending.quantity do
+        amount += math.random(recipe.output.min, recipe.output.max)
+    end
+
     exports.ox_inventory:AddItem(source, recipe.output.item, amount)
     exports.qbx_core:Notify(source, locale('success.cook_complete', amount, exports.ox_inventory:Items()[recipe.output.item].label), 'success')
 end)

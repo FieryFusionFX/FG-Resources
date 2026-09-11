@@ -7,19 +7,19 @@ return {
         meth = {
             label = 'Cook Meth',
             ingredients = { { item = 'meth_ingredient', amount = 1 } },
-            output = { item = 'meth', amount = 5 },
+            output = { item = 'meth', min = 3, max = 10 }, -- randomized per batch
             cookTime = 45000,
         },
         coke = {
             label = 'Cook Cocaine',
             ingredients = { { item = 'coke_ingredient', amount = 1 } },
-            output = { item = 'cokebaggy', amount = 5 },
+            output = { item = 'cokebaggy', min = 3, max = 10 },
             cookTime = 45000,
         },
         crack = {
             label = 'Cook Crack',
             ingredients = { { item = 'cokebaggy', amount = 2 }, { item = 'baking_soda', amount = 1 } },
-            output = { item = 'crack_baggy', amount = 5 },
+            output = { item = 'crack_baggy', min = 3, max = 10 },
             cookTime = 30000,
         },
     },
