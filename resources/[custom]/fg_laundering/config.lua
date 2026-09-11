@@ -1,5 +1,5 @@
 return {
-    cutPercent = 0.15, -- the laundering front takes 15% - tune this for economy balance
+    cutPercent = 0, -- no cut - players get the full amount back clean
     dirtyMoneyItem = 'black_money',
     launderTimeMs = 45000, -- how long the cash takes to come back clean
     locations = {
