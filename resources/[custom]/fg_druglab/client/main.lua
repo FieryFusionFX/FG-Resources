@@ -35,7 +35,7 @@ local function updateLabBlips()
     end
 end
 
-local function startCook(recipeKey)
+local function startCook(recipeKey, quantity)
     if not isThief() then
         return exports.qbx_core:Notify(locale('error.not_thief'), 'error')
     end
@@ -45,7 +45,7 @@ local function startCook(recipeKey)
     end
 
     local recipe = config.recipes[recipeKey]
-    local took = lib.callback.await('fg_druglab:server:takeIngredients', false, recipeKey)
+    local took = lib.callback.await('fg_druglab:server:takeIngredients', false, recipeKey, quantity)
     if not took then
         return exports.qbx_core:Notify(locale('error.missing_ingredients'), 'error')
     end
@@ -53,8 +53,8 @@ local function startCook(recipeKey)
     isCooking = true
 
     local success = lib.progressBar({
-        duration = recipe.cookTime,
-        label = recipe.label,
+        duration = recipe.cookTime * quantity,
+        label = ('%s x%s'):format(recipe.label, quantity),
         useWhileDead = false,
         canCancel = false,
         disable = { move = true, car = true, combat = true },
@@ -63,7 +63,7 @@ local function startCook(recipeKey)
     isCooking = false
 
     if success then
-        TriggerServerEvent('fg_druglab:server:finishCook', recipeKey)
+        TriggerServerEvent('fg_druglab:server:finishCook', recipeKey, quantity)
     end
 end
 
@@ -82,7 +82,17 @@ local function openLabMenu(labIndex)
 
     if not input then return end
 
-    startCook(input[1])
+    local recipeKey = input[1]
+    local recipe = config.recipes[recipeKey]
+    local maxQuantity = math.floor(config.maxCookTime / recipe.cookTime)
+
+    local qtyInput = lib.inputDialog(recipe.label, {
+        { type = 'number', label = locale('text.quantity_label', maxQuantity), min = 1, max = maxQuantity, default = 1, required = true },
+    })
+
+    if not qtyInput then return end
+
+    startCook(recipeKey, math.floor(qtyInput[1]))
 end
 
 for i = 1, #config.labs do

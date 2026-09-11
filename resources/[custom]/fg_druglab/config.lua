@@ -1,5 +1,6 @@
 return {
     interactionDistance = 1.5,
+    maxCookTime = 180000, -- 3 minutes - hard cap on a single cook, however many batches are queued
 
     -- Buy ingredients at YouTool, cook them here into sellable product.
     recipes = {

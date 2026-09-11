@@ -2,7 +2,8 @@
     "text": {
         "interact_prompt": "[E] Cook Drugs",
         "lab_header": "Cook a Batch",
-        "recipe_label": "Recipe"
+        "recipe_label": "Recipe",
+        "quantity_label": "Batches (max %s - 3 min cook time cap)"
     },
     "error": {
         "missing_ingredients": "You Don't Have The Ingredients For That",
