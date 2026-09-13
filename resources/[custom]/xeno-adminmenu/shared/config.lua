@@ -35,7 +35,7 @@ Config.Registration = {
 
 
 Config.WeatherSync = {
-    Enabled = true,                     
+    Enabled = false, -- Renewed-Weathersync already runs on this server; both fighting over the clock caused day/night to flip constantly
     Debug = true,                       
     DefaultWeather = "CLEAR",           
     DefaultTime = { hour = 8, minute = 0 }, 
