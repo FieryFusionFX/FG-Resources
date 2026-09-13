@@ -72,7 +72,7 @@ end)
 
 
 function IsAdmin(src)
-    local identifier = GetPlayerIdentifierByType(src, 'license')
+    local identifier = GetPlayerIdentifierByType(src, 'license2') -- qbox identifies players by license2, not license
     if not identifier then return false end
 
     local staff = GetStaff(identifier)
@@ -83,7 +83,7 @@ function IsAdmin(src)
 end
 
 function HasPermission(src, permission)
-    local identifier = GetPlayerIdentifierByType(src, 'license')
+    local identifier = GetPlayerIdentifierByType(src, 'license2') -- qbox identifies players by license2, not license
     if not identifier then return false end
 
     local staff = GetStaff(identifier)

@@ -18,7 +18,7 @@ RegisterCommand('xeno_make_owner', function(source, args, rawCommand)
         return
     end
 
-    local identifier = GetPlayerIdentifierByType(targetId, 'license')
+    local identifier = GetPlayerIdentifierByType(targetId, 'license2') -- qbox identifies players by license2, not license
     if not identifier then
         DebugLog('^1Could not find license for player ' .. targetId .. '^0')
         return
@@ -63,7 +63,7 @@ end)
 
 RegisterNetEvent('xeno-adminmenu:server:CheckRegistrationStatus', function()
     local src = source
-    local identifier = GetPlayerIdentifierByType(src, 'license')
+    local identifier = GetPlayerIdentifierByType(src, 'license2') -- qbox identifies players by license2, not license
     if not identifier then return end
 
     local staff = exports['xeno-adminmenu']:GetStaff(identifier)
@@ -81,7 +81,7 @@ end)
 
 RegisterNetEvent('xeno-adminmenu:server:SubmitRegistration', function(reason)
     local src = source
-    local identifier = GetPlayerIdentifierByType(src, 'license')
+    local identifier = GetPlayerIdentifierByType(src, 'license2') -- qbox identifies players by license2, not license
     if not identifier then return end
 
     if type(reason) ~= 'string' or string.len(reason) < (Config.Registration.MinReasonLength or 10) then
